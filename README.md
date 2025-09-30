@@ -53,11 +53,10 @@ See also:
     cd .ssh
     ls -l
     cat id_rsa.pub
+    # Log into Launchpad, then edit SSH keys, and copy the id_rsa.pub output into the new key window.
+    # Once that has been done, continue.
     cd ..
     ```
-
-Log into Launchpad, then edit SSH keys, and copy the id_rsa.pub output into the new key window.
-Once that has been done, continue.
 
 5. Clone the needed Git repositories and compile the code (change the launchpad username to yours):
 
@@ -148,7 +147,7 @@ Once that has been done, continue.
 
 13. If you have a testing web server then update the copy on your server, as this basically becomes a backup of the local Git branch, including the Git packing information.
 
-14. Release day edits: The `lts` and `stable` links. THe index.html file also needs edits. examples:
+14. Release day edits: The `lts` and `stable` links. The `index.html` file also needs edits. examples:
 
     ```bash
     cd lts
@@ -217,4 +216,3 @@ cd 22.04
 ls -l
 mv ubuntu-docs ubuntu-help
 ```
-
