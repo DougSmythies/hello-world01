@@ -54,7 +54,7 @@ See also:
     ls -l
     cat id_rsa.pub
     cd ..
-```
+    ```
 
 Log into Launchpad, then edit SSH keys, and copy the id_rsa.pub output into the new key window.
 Once that has been done, continue.
