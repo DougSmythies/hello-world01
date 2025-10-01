@@ -167,52 +167,47 @@ See also:
 ### Commands reference
 
 Commands used on a new 25.10 VM desktop computer to install stuff and compile and publish:
-OBSOLETE - Still to be replaced...
 
 ```bash
-sudo apt update
-sudo apt upgrade
-dpkg -l | grep doc
-sudo apt update
-sudo apt upgrade
-dpkg -l | grep doc
-dpkg -l | grep ubuntu-docs
-dpkg -l | grep gnome-user-docs
 sudo apt install git xsltproc libxml2-utils yelp-tools yelp-xsl make
+git clone git://git.launchpad.net/~ubuntu-core-doc/ubuntu/+source/ubuntu-docs
+cd ubuntu-docs
+git branch
+git log --oneline
+git show f953f96
 sudo apt install gnome-user-docs*
+dpkg -l | grep ubuntu-docs
+cd ~
 ssh-keygen -t rsa
 cd .ssh
-ls -l
 cat id_rsa.pub
-git config --global user.name "My Name"
-git config --global user.email "my-email"
 cd ..
-git clone git+ssh://USER@git.launchpad.net/ubuntu/+source/ubuntu-docs
-cd ubuntu-docs
+git clone -b main git+ssh://dsmythies@git.launchpad.net/~ubuntu-core-doc/help.ubuntu.com
 ls -l
+cd help.ubuntu.com
+ls -l
+git branch
+git log --oneline
+cd ~/ubuntu-docs
 cd html
 make
 make install
-ls -l
 ls -l ubuntu-docs | more
-cd ../..
-ls -l
-mkdir ubuntu-help
-cd ubuntu-help
-git clone git+ssh://marek-suchanek@git.launchpad.net/~ubuntu-core-doc/help.ubuntu.com z
-ls -l
-cd z
-ls -l
-mkdir 22.04
-cd 22.04
-ls -l ../21.10
+cd ~/help.ubuntu.com
+mkdir 25.10
+cd 25.10
 ls -l ~/ubuntu-docs/html/ubuntu-docs
 rsync --dry-run --delete --archive --verbose --checksum ~/ubuntu-docs/html/ubuntu-docs ./
 rsync --delete --archive --verbose --checksum ~/ubuntu-docs/html/ubuntu-docs ./
-ls -l
 cd ..
 nano index.html
-cd 22.04
+cd 25.10
 ls -l
 mv ubuntu-docs ubuntu-help
+cd ..
+rsync --delete --archive --verbose --checksum --dry-run ./ doug@smythies.com:/home/doug/public_html/linux/ubuntu-docs/help.ubuntu.com/dev
+rsync --delete --archive --verbose --checksum ./ doug@smythies.com:/home/doug/public_html/linux/ubuntu-docs/help.ubuntu.com/dev
+nano index.html
+rsync --delete --archive --verbose --checksum ./ doug@smythies.com:/home/doug/public_html/linux/ubuntu-docs/help.ubuntu.com/dev
+... further commands pending ...
 ```
